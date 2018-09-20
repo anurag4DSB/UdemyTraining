@@ -1,4 +1,4 @@
-package new
+package _1_constant
 
 import "fmt"
 
