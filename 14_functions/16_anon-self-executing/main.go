@@ -1,0 +1,1 @@
+package _6_anon_self_executing
