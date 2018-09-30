@@ -11,3 +11,5 @@ func main() {
 func changeMe(z map[string]int) {
 	z["Todd"] = 44
 }
+
+// a map is a reference type.

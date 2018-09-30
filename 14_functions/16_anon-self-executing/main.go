@@ -1,1 +1,9 @@
-package _6_anon_self_executing
+package main
+
+import "fmt"
+
+func main() {
+	func() {
+		fmt.Println("I am driving")
+	}()
+}

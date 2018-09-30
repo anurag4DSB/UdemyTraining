@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	m := make([]string, 2, 25) // this is making a slice
+	m := make([ ]string, 2, 25) // this is making a slice
 	fmt.Println(m)
 	changeMe(m)
 	fmt.Println(m)
@@ -16,3 +16,4 @@ func changeMe(z []string) {
 }
 
 
+// slice is a reference type Its an address pointing to an underlying array.
