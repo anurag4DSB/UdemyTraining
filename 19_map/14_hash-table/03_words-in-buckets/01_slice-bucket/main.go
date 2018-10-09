@@ -1,1 +1,44 @@
-package _1_slice_bucket
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"net/http"
+)
+
+func main() {
+	res, err := http.Get("http://www.gutenberg.org/cache/epub/1661/pg1661.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	scanner := bufio.NewScanner(res.Body)
+	defer res.Body.Close()
+
+	scanner.Split(bufio.ScanWords)
+	buckets := make([][]string, 12)
+
+	for scanner.Scan() {
+		word := scanner.Text()
+		n := hashBucket(word, 12)
+		buckets[n] = append(buckets[n], word)
+	}
+	for i := 0; i < 12; i++ {
+		fmt.Println(i, " - ", len(buckets[i]))
+	}
+	//for i:= 0; i < 5000; i++ {
+	//	fmt.Println(buckets[6][i])
+	//}
+	//fmt.Println(buckets[6])
+	fmt.Println(len(buckets))
+	fmt.Println(cap(buckets))
+
+}
+
+func hashBucket(word string, buckets int) int {
+	var sum int
+	for _, v := range word {
+		sum += int(v)
+	}
+	return sum % buckets
+}
