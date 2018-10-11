@@ -10,4 +10,3 @@ func main() {
 	sort.Ints(n)
 	fmt.Println(n)
 }
-
