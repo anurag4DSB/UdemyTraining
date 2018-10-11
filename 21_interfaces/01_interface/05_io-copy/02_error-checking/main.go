@@ -36,5 +36,4 @@ func main() {
 	if err := res.Body.Close(); err != nil {
 		fmt.Println(err)
 	}
-
 }
